@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Purchase Form</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+  <h1>PURCHASE FORM</h1>
+  <form id="registrationForm">
+    <label for="email">E-mail</label>
+    <input type="text" id="email" required>
+
+    <div class="title-container">
+      <p>Title: &nbsp; </p>
+      <div class="checkbox-container">
+        <input type="checkbox" id="mrCheckbox">
+        <label for="mrCheckbox">Mr.&nbsp;</label>
+        <input type="checkbox" id="msCheckbox">
+        <label for="msCheckbox">Ms.&nbsp;</label>
+        <input type="checkbox" id="mrsCheckbox">
+        <label for="mrsCheckbox">Mrs.&nbsp;</label>
+      </div>
+    </div> 
+
+    <div class="name-container">
+      <label for="firstName">First Name: &nbsp;</label>
+      <input type="text" id="firstName" required>
+      <label for="lastName">&nbsp;&nbsp; Last Name: &nbsp;</label>
+      <input type="text" id="lastName" required>
+    </div>    
+    
+    <label for="address">Complete Postal Mailing Address (with Postal Code & Country)</label>
+    <textarea id="address" required></textarea>
+  <br>
+  <br>
+
+  <h3> Personal information: </h3>
+    <div class="form-row">
+      <label for="phone">Phone: &nbsp;</label>
+      <input type="text" id="phone" required>
+    </div>
+    
+    <div class="form-row">
+      <label for="occupation">&nbsp;&nbsp;&nbsp;City: &nbsp;</label>
+      <input type="text" id="occupation">
+    </div>
+    
+    <div class="form-row">
+      <label for="maritalStatus">&nbsp;&nbsp;&nbsp;Address: &nbsp;</label>
+      <input type="text" id="maritalStatus">
+    </div>
+    
+    <h3>Emergency contact:</h3>
+    <div class="form-row">
+      <label for="emergencyName">Name: &nbsp;</label>
+      <input type="text" id="emergencyName" required>
+      <label for="emergencyEmail">&nbsp;&nbsp;&nbsp;Email: &nbsp;</label>
+      <input type="text" id="emergencyEmail" required>
+    </div>
+    
+    <div class="form-row">
+      <label for="emergencyPhone">&nbsp;&nbsp;&nbsp;Phone: &nbsp; </label>
+      <input type="text" id="emergencyPhone" required>
+    </div>
+    
+    <div class="checkbox-group">
+      <h3>For whom: </h3>
+      <div class="checkbox-container">
+        <input type="checkbox" id="runner">
+        <label for="runner">&nbsp;For myself&nbsp; </label>
+        <input type="checkbox" id="walker">
+        <label for="walker">&nbsp;Present&nbsp; </label>
+      </div>
+    </div>
+    
+    <h3>Wishes(if present)</h3>
+    <textarea id="roomSharingPreference"></textarea>
+
+    <label for="payment-method"><h3>Payment Method:</h3></label>
+    <select id="payment-method" onchange="toggleCardFields()">
+        <option value="cash">Cash</option>
+        <option value="card">Card</option>
+    </select>
+
+    <div id="card-fields" style="display: none;">
+        <label for="card-number">Card Number:</label>
+        <input type="text" id="card-number">
+  
+        <label for="expiry-date">Expiry Date:</label>
+        <input type="text" id="expiry-date">
+    </div>  
+
+    <script>
+        function toggleCardFields() {
+            var paymentMethod = document.getElementById("payment-method").value;
+            var cardFields = document.getElementById("card-fields");
+
+            if (paymentMethod === "card") {
+                cardFields.style.display = "block";
+            } else {
+                cardFields.style.display = "none";
+            }
+        }
+    </script>
+    
+    <p><a href="https://store.apple.com/Catalog/US/Images/eduspa.pdf">Purchase Agreement</a></p>
+
+   
+    <div class="form-row">
+      <input type="checkbox" id="agreeTerms" required>
+      <label for="agreeTerms">I have read and accept all terms and conditions</label>
+    </div>
+    
+    <div class="button-container">
+      <input type="submit" value="Submit">
+    </div>
+    
+  </form>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
